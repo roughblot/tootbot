@@ -46,7 +46,7 @@ def get_twitter_caption(submission):
     if HASHTAGS:
         for x in HASHTAGS:
             # Add hashtag to string, followed by a space for the next one
-            hashtag_string += '#' + x + ' '
+            hashtag_string += '' + x + ' '
     # Set the Twitter max title length for 280, minus the length of the shortlink and hashtags, minus one for the space between title and shortlink
     twitter_max_title_length = 280 - len(submission.shortlink) - len(hashtag_string) - 1
     # Create contents of the Twitter post
@@ -62,7 +62,7 @@ def get_mastodon_caption(submission):
     if HASHTAGS:
         for x in HASHTAGS:
             # Add hashtag to string, followed by a space for the next one
-            hashtag_string += '#' + x + ' '
+            hashtag_string += '' + x + ' '
     # Set the Mastodon max title length for 500, minus the length of the shortlink and hashtags, minus one for the space between title and shortlink
     mastodon_max_title_length = 500 - len(submission.shortlink) - len(hashtag_string) - 1
     # Create contents of the Mastodon post
