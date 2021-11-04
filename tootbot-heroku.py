@@ -50,10 +50,10 @@ def get_twitter_caption(submission):
     # Set the Twitter max title length for 280, minus the length of the shortlink and hashtags, minus one for the space between title and shortlink
     twitter_max_title_length = 280 - len(submission.shortlink) - len(hashtag_string) - 1
     # Create contents of the Twitter post
-    if len(submission.selftext) < twitter_max_title_length:
-        twitter_caption = submission.selftext.lower() + ' ' + hashtag_string
+    if (len(submission.title) + len(submission.selftext)) < twitter_max_title_length:
+        twitter_caption = submission.title.tolower() + '\n\n' + submission.selftext.lower() + ' ' + hashtag_string
     else:
-        twitter_caption = submission.selftext[:twitter_max_title_length].lower() + '... ' + hashtag_string
+        twitter_caption = submission.title.tolower() + submission.selftext[:twitter_max_title_length].lower() + '... ' + hashtag_string
     return twitter_caption
 
 def get_mastodon_caption(submission):
